@@ -353,7 +353,7 @@ impl PTouch {
     /// Print output must be shifted and in the correct bit-order for this function.
     /// 
     /// TODO: this is too low level of an interface, should be replaced with higher-level apis
-    pub fn print_raw(&mut self, data: Vec<[u8; 16]>, info: &PrintInfo) -> Result<(), Error> {
+    pub fn print_raw(&mut self, data: Vec<[u8; 16]>, info: &PrintInfo, feed: bool) -> Result<(), Error> {
         // TODO: should we check info (and size) match status here?
 
 
@@ -394,7 +394,11 @@ impl PTouch {
         }
 
         // Execute print operation
-        self.print_and_feed()?;
+        if feed {
+            self.print_and_feed()?;
+        } else {
+            self.print()?;
+        }
 
 
         // Poll on print completion

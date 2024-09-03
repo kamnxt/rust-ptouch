@@ -141,6 +141,10 @@ impl Commands for PTouch {
             buff[3] |= 0x80;
         }
 
+        if info.otherpage {
+            buff[11] = 1;
+        }
+
         self.write(&buff, self.timeout)
     }
 

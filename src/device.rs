@@ -441,6 +441,8 @@ pub struct PrintInfo {
     pub raster_no: u32,
     /// Enable print recovery
     pub recover: bool,
+
+    pub otherpage: bool,
 }
 
 impl Default for PrintInfo {
@@ -451,6 +453,7 @@ impl Default for PrintInfo {
             length: Some(0),
             raster_no: 0,
             recover: true,
+            otherpage: false,
         }
     }
 }
