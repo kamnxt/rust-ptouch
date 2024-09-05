@@ -46,3 +46,8 @@ toml = { version = "0.5.8", optional = true }
 name = "ptouch-util"
 path = "src/util.rs"
 required-features = [ "util" ]
+
+[[bin]]
+name = "ptouch-test"
+path = "src/test.rs"
+required-features = [ "util" ]

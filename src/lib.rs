@@ -368,18 +368,18 @@ impl PTouch {
         self.set_print_info(info)?;
 
         // 4. Set various mode settings
-        self.set_various_mode(VariousMode::AUTO_CUT)?;
+        self.set_various_mode(VariousMode::empty())?;
 
         // 5. Specify page number in "cut each * labels"
         // Note this is not supported on the PT-P710BT
         // TODO: add this for other printers
 
         // 6. Set advanced mode settings
-        self.set_advanced_mode(AdvancedMode::NO_CHAIN)?;
+        self.set_advanced_mode(AdvancedMode::NO_CHAIN | AdvancedMode::HALF_CUT)?;
 
         // 7. Specify margin amount
         // TODO: based on what?
-        self.set_margin(0)?;
+        self.set_margin(0xe)?;
 
         // 8. Set compression mode
         // TODO: fix broken TIFF mode and add compression flag

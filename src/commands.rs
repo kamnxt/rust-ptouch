@@ -119,20 +119,20 @@ impl Commands for PTouch {
         buff[1] = 0x69;
         buff[2] = 0x7a;
 
-        if let Some(i) = &info.kind {
-            buff[3] |= 0x02;
-            buff[4] = *i as u8;
-        }
+        //if let Some(i) = &info.kind {
+        //    buff[3] |= 0x02;
+        //    buff[4] = *i as u8;
+        //}
 
         if let Some(w) = &info.width {
-            buff[3] |= 0x04;
+        //    buff[3] |= 0x04;
             buff[5] = *w as u8;
         }
 
-        if let Some(l) = &info.length {
-            buff[3] |= 0x08;
-            buff[6] = *l as u8;
-        }
+        //if let Some(l) = &info.length {
+        //    buff[3] |= 0x08;
+        //    buff[6] = *l as u8;
+        //}
 
         let raster_bytes = info.raster_no.to_le_bytes();
         buff[7..11].copy_from_slice(&raster_bytes);
